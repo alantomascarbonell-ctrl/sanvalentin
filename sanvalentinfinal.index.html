@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Te Amo</title>
+<style>
+    body {
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        margin: 0;
+    }
+    h1 {
+        margin-top: 80px;
+        font-size: 50px;
+        color: #fff;
+        text-shadow: 2px 2px 5px #d6336c;
+    }
+    h2 {
+        color: white;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    p {
+        color: white;
+        font-size: 22px;
+    }
+    .firma {
+        margin-top: 30px;
+        font-size: 24px;
+        font-style: italic;
+        color: #fff;
+    }
+    button {
+        font-size: 22px;
+        padding: 10px 30px;
+        margin: 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    #si { background-color: #ff4d6d; color: white; }
+    #si:hover { background-color: #c9184a; }
+    #no { background-color: #6c757d; color: white; position: absolute; }
+    .corazon {
+        position: absolute;
+        color: red;
+        font-size: 30px;
+        animation: flotar 6s infinite;
+    }
+    @keyframes flotar {
+        0% { transform: translateY(100vh); opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<h1>💖 ¿Querés ser mi San Valentín? 💖</h1>
+<h2>Te amo mucho ❤️</h2>
+<p>Desde que estás en mi vida, todo es más lindo y feliz ✨🌹</p>
+<div class="firma">De Mumo para Muma 💌</div>
+
+<button id="si" onclick="respuestaSi()">Sí 💖</button>
+<button id="no">No 😢</button>
+
+<script>
+    // Acción al tocar "Sí"
+    function respuestaSi() {
+        document.body.innerHTML = "<h1 style='color:white; margin-top:150px;'>¡Sabía que dirías que sí! 💍💖<br>Te amo muchísimo ❤️<br>De Mumo para Muma 🌹</h1>";
+    }
+
+    // Botón "No" se mueve
+    const botonNo = document.getElementById("no");
+    botonNo.addEventListener("mouseover", function() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        botonNo.style.left = x + "px";
+        botonNo.style.top = y + "px";
+    });
+
+    // Corazones flotando
+    function crearCorazon() {
+        const corazon = document.createElement("div");
+        corazon.classList.add("corazon");
+        corazon.innerHTML = "❤️";
+        corazon.style.left = Math.random() * window.innerWidth + "px";
+        corazon.style.fontSize = (20 + Math.random() * 30) + "px";
+        document.body.appendChild(corazon);
+        setTimeout(() => { corazon.remove(); }, 6000);
+    }
+    setInterval(crearCorazon, 500);
+</script>
+
+</body>
+</html>
